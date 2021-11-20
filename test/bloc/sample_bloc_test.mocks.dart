@@ -18,10 +18,6 @@ import 'package:mockito/mockito.dart' as _i1;
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockDependency extends _i1.Mock implements _i2.Dependency {
-  MockDependency() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   void test() => super.noSuchMethod(Invocation.method(#test, []),
       returnValueForMissingStub: null);

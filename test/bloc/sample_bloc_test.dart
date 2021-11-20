@@ -6,7 +6,13 @@ import 'package:mockito/mockito.dart';
 
 import 'sample_bloc_test.mocks.dart';
 
-@GenerateMocks([Dependency])
+/// - use custom mocks becuase it has some useful properties that u might need
+/// - ran with `flutter pub run build_runner build --delete-conflicting-outputs`
+@GenerateMocks([], customMocks: [
+  MockSpec<Dependency>(
+    returnNullOnMissingStub: true,
+  )
+])
 void main() {
   test(
     'should run successfully',
