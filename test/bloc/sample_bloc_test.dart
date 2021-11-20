@@ -14,14 +14,26 @@ import 'sample_bloc_test.mocks.dart';
   )
 ])
 void main() {
+  late SampleBloc bloc;
+  late MockDependency mockDependency;
+
+  setUp(() {
+    mockDependency = MockDependency();
+    bloc = SampleBloc(mockDependency);
+  });
+
   test(
     'should run successfully',
     () async {
       // arrange
-      final mockDependency = MockDependency();
-      final bloc = SampleBloc(mockDependency);
+      when(mockDependency.test()).thenAnswer((realInvocation) {});
+
       // act
       bloc.add(Event('test'));
+
+      /// - used to make the test pass because verify later will be called soon
+      /// - tip: this test serves no purpose
+      await Future.delayed(Duration(seconds: 1));
       // assert
       verify(mockDependency.test());
     },
