@@ -8,7 +8,7 @@ part 'sample_event.dart';
 part 'sample_state.dart';
 
 class SampleBloc extends Bloc<SampleEvent, SampleState> {
-  Dependency dependency;
+  final Dependency dependency;
 
   SampleBloc(this.dependency) : super(SampleInitial()) {
     on<Event>((event, emit) {
